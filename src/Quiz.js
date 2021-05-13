@@ -15,7 +15,7 @@ class Quiz extends Component{
         return (
             <div>
                 <div className="QuizQuestion">
-                    {this.state.idp}<br/> {this.state.message}
+                    {this.state.message}
                 </div>
             </div>
         );
