@@ -18,13 +18,21 @@ class Quiz extends Component {
         return this._idp;
     }
     render() {
-        const isQuizEnd = (quiz_position - 1 == quizData.quiz_questions.length);
-        return (
-            <div>
-                <QuizEnd />
-                <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} />
-            </div>
-        );
+        const isQuizEnd = ((this.state.quiz_position - 1 == quizData.quiz_questions.length)) ? true : false;
+        if (isQuizEnd) {
+            return (
+                <div>
+                    <QuizEnd />
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} />
+                </div>
+            );
+        }
+
     }
 }
 export default Quiz;
