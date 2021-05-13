@@ -6,17 +6,17 @@ class QuizQuestion extends Component {
 
     }
     render() {
+        console.log(this.props.quiz_question.instruction_text);
+        console.log(this.props.quiz_question.answer_options[0]);
         return (
             <main>
                 <section>
                     <p>
-                        // instruction text goes here
                         {this.props.quiz_question.instruction_text}
                     </p>
                 </section>
                 <section className="buttons">
                     <ul>
-                        //quiz question button logic goes here
                         <li>{this.props.quiz_question.answer_options[0]}</li>
                     </ul>
                 </section>
