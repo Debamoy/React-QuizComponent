@@ -5,6 +5,11 @@ class QuizQuestion extends Component {
         super(props);
 
     }
+    handleClick(buttonText) {
+        if (buttonText === this.props.quiz_question.answer) {
+            this.props.showNextQuestionHandler(); // parents function call func name == parents prop name
+        }
+    }
     render() {
         console.log(this.props.quiz_question.instruction_text);
         console.log(this.props.quiz_question.answer_options[0]);
@@ -18,8 +23,8 @@ class QuizQuestion extends Component {
                 <section className="buttons">
                     <ul>
                         {
-                            this.props.quiz_question.answer_options.map(d => {
-                                return (<QuizQuestionButton button_text={d} key={d} />);
+                            this.props.quiz_question.answer_options.map(index => {
+                                return (<QuizQuestionButton clickHandler={this.handleClick.bind(this)} button_text={index} key={index} />);
                             })
                         }
                     </ul>
