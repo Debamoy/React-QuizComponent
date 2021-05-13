@@ -4,18 +4,17 @@ class Quiz extends Component{
     constructor(props) {
         super(props);
         this.state = {
-
-            quiz_position: 1
+            quiz_position: 1,
+            message: quizData['quiz_questions'][0]['instruction_text']
         }
         
     }
+   
     render() {
-        
         return (
             <div>
                 <div className="QuizQuestion">
-                    {quizData.id}<br/>
-                    {quizData.instruction_text}
+                    {this.state.message}
                 </div>
             </div>
         );
