@@ -5,17 +5,18 @@ class Quiz extends Component{
         super(props);
         this.state = {
             quiz_position: 1,
-            message: quizData['quiz_questions'][0]['instruction_text'],
-            idp: quizData['quiz_questions'][0]['id']
         }
-        
+        this._message = quizData['quiz_questions'][0]['instruction_text'];
+        this._idp = quizData['quiz_questions'][0]['id'];
     }
-   
+    get message() {
+        return this._message;
+    }
     render() {
         return (
             <div>
                 <div className="QuizQuestion">
-                    {this.state.message}
+                    {this.message}
                 </div>
             </div>
         );
