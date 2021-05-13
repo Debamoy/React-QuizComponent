@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import QuizEnd from './QuizEnd.js';
 import QuizQuestion from './QuizQuestion.js';
 let quizData = require('./quiz_data.json');
 class Quiz extends Component {
@@ -17,11 +18,21 @@ class Quiz extends Component {
         return this._idp;
     }
     render() {
-        return (
-            <div>
-                <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} />
-            </div>
-        );
+        const isQuizEnd = (quiz_position - 1 == quizData.quiz_questions.length);
+        if (isQuizEnd) {
+            return (
+                <div>
+                    <QuizEnd />
+                    <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} />
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <QuizQuestion quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} />
+                </div>
+            );
+        }
     }
 }
 export default Quiz;
