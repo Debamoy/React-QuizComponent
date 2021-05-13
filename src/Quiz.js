@@ -7,12 +7,15 @@ class Quiz extends Component{
 
             quiz_position: 1
         }
+        
     }
     render() {
+        
         return (
             <div>
                 <div className="QuizQuestion">
-
+                    {quizData.id}<br/>
+                    {quizData.instruction_text}
                 </div>
             </div>
         );
